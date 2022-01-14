@@ -1,18 +1,16 @@
 import { Request, Response } from "express";
-import { GetAccountsUseCase } from "./GetAccounts"
+import { GetCellsUseCase } from "./GetCells"
 
-export class GetAccountsController {
+export class GetCellsController {
     constructor (
-        private getAccountsUseCase: GetAccountsUseCase
+        private getCellsUseCase: GetCellsUseCase
     ) {}
 
     async handle(request: Request, response: Response) {
         try {
-            const accounts = await this.getAccountsUseCase.execute()
+            const cells = await this.getCellsUseCase.execute()
 
-            console.log(accounts)
-
-            return response.status(200).json(accounts)
+            return response.status(200).json(cells)
         } catch (err) {
             return response.status(400).json({
                 message: err.message || "Unexpected error."

@@ -2,23 +2,15 @@ import { Request, Response } from "express";
 import { CreateAccountUseCase } from "./CreateAccount";
 
 export class CreateAccountController {
-
-    constructor(
-        private createAccountUseCase: CreateAccountUseCase
+    constructor (
+        private createAccount: CreateAccountUseCase
     ) {}
 
-    async handle(request: Request, response: Response): Promise<Response> {
-        const {name, email, domain, password} = request.body
-
+    async handle(request: Request, response: Response) {
         try {
-            await this.createAccountUseCase.execute({
-                name,
-                domain,
-                email,
-                password
-            })
+            const result = await this.createAccount.execute(request.body)
 
-            return response.status(201).send()
+            return response.status(200).json(result)
         } catch (err) {
             return response.status(400).json({
                 message: err.message || "Unexpected error."

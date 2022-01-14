@@ -1,0 +1,43 @@
+
+.mainNavbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 40px 50px 0 50px;
+    display: flex;
+    gap: 150px;
+}
+
+.mainNavbar > span {
+    color: rgb(126, 126, 126);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.mainNavbar > span:hover {
+    color: #fff;
+}
+
+.mainNavbarLogo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.mainNavbarLogo span strong {
+    color: #1D90F4;
+}
+
+.mainNavbarLogoImg {
+    width: 30px;
+    height: 30px;
+    background-color: #1D90F4;
+    border-radius: 15px;
+}

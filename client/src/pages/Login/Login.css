@@ -1,0 +1,153 @@
+
+.mainLogin {
+    width: 100%;
+    height: 100vh;
+    background-color: #282A37;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 100px;
+}
+
+.mainLoginBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.mainLoginBackground img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainLoginBackgroundFade {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(67deg, 
+        rgba(40,42,55,1) 0%, 
+        rgba(40,42,55,1) 42%, 
+        rgba(40,42,55,1) 64%, 
+        rgba(40,42,55,0.62) 100%
+    );
+}
+
+.mainLoginContent {
+    z-index: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mainLoginContentTexts {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mainLoginContentTexts span {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(126, 126, 126);
+}
+
+.mainLoginContentTexts > h1 {
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+.mainLoginContentTexts > h1 > strong {
+    color: #1D90F4;
+}
+
+.mainLoginContentTexts > small {
+    color: rgb(126, 126, 126);
+}
+
+.mainLoginContentTexts > small > strong {
+    color: #1D90F4;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.mainLoginContentForm {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mainLoginContentFormDoubleBox {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.mainLoginContentFormBoxItem {
+    background-color: #323645;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    padding: 0px 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainLoginContentFormBoxItemInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mainLoginContentFormBoxItemInput > input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 800;
+}
+
+.mainLoginContentFormBoxItemInput span {
+    font-size: 10px;
+    color: rgb(126, 126, 126);
+}
+
+.mainLoginContentFormBoxItem > svg {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.mainLoginContentButtons {
+    max-width: 450px;
+}
+
+.mainLoginContentButtons button {
+    background-color: #1D90F4;
+    width: 100%;
+    height: 50px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: .9rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all ease-in-out .1s;
+}
+
+.mainLoginContentButtons button:hover {
+    scale: 1.05;
+}
+
+.mainLoginBox {
+    z-index: 1;
+    width: 100%;
+}

@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 
-export interface IGetAccountRequestDTO {
+export interface IGetCellRequestDTO {
     _id?: ObjectId
     name: string
     domain: string
