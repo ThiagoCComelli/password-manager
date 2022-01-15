@@ -1,22 +1,36 @@
-import { IAccountsRepository } from "../IAccountRepository";
-import { MongoClient } from "mongodb";
+import { IAccountsRepository } from "../IAccountsRepository";
+import { MongoDBRepository } from "./MongoDBRepository";
 import { Account } from "../../entities/Account";
+import { ILoginAccountRequestDTO } from "../../useCases/loginAccount/LoginAccountDTO";
 
 export class MongoDBAccountsRepository implements IAccountsRepository {
-    static client: MongoClient
 
-    static async startDB(): Promise<boolean> {
-        this.client = new MongoClient(process.env.DB_CONN_STRING)
-        await this.client.connect()
-        console.log("MongoDB connected! ACCOUNTS")
-        return true
+    async findAccountByEmail(email: string): Promise<boolean> {
+        // @ts-ignore
+        const account: ICreateAccountRequestDTO = await MongoDBRepository.client.db().collection(process.env.DB_COLLECTION_ACCOUNTS).findOne(
+            {"email": email}
+        )
+            
+        if (account) {
+            return true
+        }
+        return false
     }
 
-    findAccountByEmail(email: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async createNewAccount(account: Account): Promise<void> {
+        // @ts-ignore
+        const result = await MongoDBRepository.client.db().collection(process.env.DB_COLLECTION_ACCOUNTS).insertOne(account)
+
     }
-    createNewAccount(account: Account): Promise<void> {
-        throw new Error("Method not implemented.");
+
+    async findAccountByEmailAndLogin(data: ILoginAccountRequestDTO): Promise<Account> {
+        // @ts-ignore
+        const result = await MongoDBRepository.client.db().collection(process.env.DB_COLLECTION_ACCOUNTS).findOne(data)
+        
+        // @ts-ignore
+        const account = new Account(result)
+
+        return account
     }
     
 }

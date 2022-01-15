@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 
 export class Account {
-    public readonly _id: string
+    public readonly _id: string | ObjectId
 
     public first_name: string
     public last_name: string

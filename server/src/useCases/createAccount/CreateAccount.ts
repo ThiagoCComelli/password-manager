@@ -4,11 +4,11 @@ import { ICreateAccountRequestDTO } from "./CreateAccountDTO";
 
 export class CreateAccountUseCase {
     constructor (
-        private accountRepository: IAccountsRepository
+        private accountsRepository: IAccountsRepository
     ) {}
 
     async execute(data: ICreateAccountRequestDTO) {
-        const accountAlreadyExist = await this.accountRepository.findAccountByEmail(data.email)
+        const accountAlreadyExist = await this.accountsRepository.findAccountByEmail(data.email)
 
         if (accountAlreadyExist) {
             throw new Error("Account Already exists.")
@@ -16,6 +16,6 @@ export class CreateAccountUseCase {
 
         const account = new Account(data)
 
-        await this.accountRepository.createNewAccount(account)
+        await this.accountsRepository.createNewAccount(account)
     }
 }

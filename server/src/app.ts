@@ -1,14 +1,14 @@
 import express from 'express'
-import { MongoDBCellsRepository } from './repositories/implementations/MongoDBCellsRepository'
-import { MongoDBAccountsRepository } from './repositories/implementations/MongoDBAccountsRepository'
-import { router } from './routes'
+import { authRouter } from './routes/auth'
+import { cellsRouter } from './routes/cells'
+import { MongoDBRepository } from './repositories/implementations/MongoDBRepository'
 
 const app = express()
 
 app.use(express.json())
-app.use(router)
+app.use("/auth", authRouter)
+app.use("/cells", cellsRouter)
 
-MongoDBCellsRepository.startDB()
-MongoDBAccountsRepository.startDB()
+MongoDBRepository.startDB()
 
 export {app}
